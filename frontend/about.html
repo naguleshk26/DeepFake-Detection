@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Methodology & About - DeepGuard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">
+        <i class="fas fa-shield-halved"></i>
+        <span>DeepGuard</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="analyze.html" class="nav-link">Analyze Media</a></li>
+        <li><a href="history.html" class="nav-link">History Log</a></li>
+        <li><a href="about.html" class="nav-link active">Methodology & About</a></li>
+        <li><a href="analyze.html" class="btn-nav-upload"><i class="fas fa-upload"></i> Upload Media</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="main-wrapper">
+    <div style="max-width: 960px; margin: 0 auto;">
+      
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <h1 style="font-size: 2.5rem; font-weight: 800;">DeepGuard System Methodology</h1>
+        <p style="color: var(--text-secondary); margin-top: 0.5rem;">Understanding AI deepfakes, digital image forensics, and signal fusion architecture.</p>
+      </div>
+
+      <!-- What are Deepfakes -->
+      <section class="card" style="margin-bottom: 2.5rem;">
+        <h2 class="card-title"><i class="fas fa-brain"></i> What Are Deepfakes & Synthetic Media?</h2>
+        <p style="color: var(--text-secondary); margin-top: 1rem;">
+          <strong>Deepfakes</strong> are synthetic digital media (images, videos, or audio clips) created or altered using generative deep learning algorithms such as Generative Adversarial Networks (GANs), Diffusion Models (e.g. Stable Diffusion, Midjourney, DALL-E), and autoencoders (e.g. DeepFaceLab).
+        </p>
+        <p style="color: var(--text-secondary); margin-top: 0.75rem;">
+          These algorithms learn facial structures, lighting transitions, and skin textures to swap faces or generate realistic non-existent human countenances. While visual quality can appear convincing to the human eye, AI generators leave mathematical artifacts in frequency spectra, pixel noise distributions, and compression grids.
+        </p>
+      </section>
+
+      <!-- Forensic Techniques Breakdown -->
+      <section class="card" style="margin-bottom: 2.5rem;">
+        <h2 class="card-title"><i class="fas fa-microscope"></i> Multi-Layered Forensic Signals</h2>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
+          <div style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+            <h4 style="color: var(--accent-cyan); font-weight: 700; margin-bottom: 0.5rem;"><i class="fas fa-layer-group"></i> 1. Error Level Analysis (ELA)</h4>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">
+              Re-saves images under controlled 95% JPEG quantization. Original camera photos exhibit uniform degradation, whereas edited or composite areas display elevated error levels due to multi-compression history.
+            </p>
+          </div>
+
+          <div style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+            <h4 style="color: var(--accent-cyan); font-weight: 700; margin-bottom: 0.5rem;"><i class="fas fa-wave-square"></i> 2. Noise & Frequency Artifacts</h4>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">
+              Divides image into spatial patches to measure sensor noise standard deviation variance. Performs 2D Discrete Fourier Transforms (FFT) to detect periodic grid spikes produced by GAN upsampling filters.
+            </p>
+          </div>
+
+          <div style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+            <h4 style="color: var(--accent-cyan); font-weight: 700; margin-bottom: 0.5rem;"><i class="fas fa-fingerprint"></i> 3. EXIF & Software Signatures</h4>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">
+              Inspects embedded EXIF headers for camera hardware (Make, Model, Lens), creation timestamps, and software modification signatures (Photoshop, Canva, Midjourney, LightX).
+            </p>
+          </div>
+
+          <div style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+            <h4 style="color: var(--accent-cyan); font-weight: 700; margin-bottom: 0.5rem;"><i class="fas fa-robot"></i> 4. PyTorch Deep Learning Model</h4>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">
+              Employs a PyTorch Convolutional Neural Network trained on deepfake face datasets to evaluate facial symmetry, eye alignment, and boundary inconsistencies.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Configurable Classification Thresholds -->
+      <section class="card" style="margin-bottom: 2.5rem;">
+        <h2 class="card-title"><i class="fas fa-sliders-h"></i> Classification Thresholds & Scoring</h2>
+        <p style="color: var(--text-secondary); margin-top: 0.5rem;">
+          DeepGuard combines individual signal outputs into a unified manipulation score. Classification boundaries are centrally managed in <code>config.py</code>:
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1.25rem; text-align: center;">
+          <div class="result-banner authentic" style="padding: 1.25rem; margin: 0;">
+            <span class="badge badge-authentic" style="font-size: 0.9rem; margin-bottom: 0.5rem;">0% – 30%</span>
+            <h4 style="font-weight: 700; font-size: 1.1rem;">LIKELY AUTHENTIC</h4>
+            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem;">Low manipulation indicators across forensic signals.</p>
+          </div>
+
+          <div class="result-banner suspicious" style="padding: 1.25rem; margin: 0;">
+            <span class="badge badge-suspicious" style="font-size: 0.9rem; margin-bottom: 0.5rem;">31% – 70%</span>
+            <h4 style="font-weight: 700; font-size: 1.1rem;">SUSPICIOUS</h4>
+            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem;">Inconsistent or mixed forensic signal readings.</p>
+          </div>
+
+          <div class="result-banner deepfake" style="padding: 1.25rem; margin: 0;">
+            <span class="badge badge-deepfake" style="font-size: 0.9rem; margin-bottom: 0.5rem;">71% – 100%</span>
+            <h4 style="font-weight: 700; font-size: 1.1rem;">LIKELY AI-GENERATED</h4>
+            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem;">High synthetic or deepfake manipulation probability.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- System Limitations & Legal Disclaimer -->
+      <div class="disclaimer-box" style="margin-bottom: 2.5rem;">
+        <i class="fas fa-balance-scale"></i>
+        <div>
+          <strong>System Disclaimer & Limitations:</strong> Media verification algorithms are probabilistic tools. Heavily compressed social media files (e.g. WhatsApp, Instagram) may strip EXIF metadata or introduce compression artifacts that mimic manipulation. DeepGuard provides AI-based prediction insights, not 100% legal proof.
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div style="max-width: 1280px; margin: 0 auto; padding: 0 1.5rem;">
+      <p>DeepGuard – AI-Based Deepfake & Digital Media Authenticity Verification System</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

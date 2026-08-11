@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  deepguard:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: deepguard_app
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./uploads:/app/uploads
+      - ./results:/app/results
+      - ./backend/deepguard.db:/app/deepguard.db
+    environment:
+      - DATABASE_URL=sqlite:////app/deepguard.db
+    restart: unless-stopped

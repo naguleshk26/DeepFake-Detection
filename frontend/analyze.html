@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analyze Media - DeepGuard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">
+        <i class="fas fa-shield-halved"></i>
+        <span>DeepGuard</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="analyze.html" class="nav-link active">Analyze Media</a></li>
+        <li><a href="history.html" class="nav-link">History Log</a></li>
+        <li><a href="about.html" class="nav-link">Methodology & About</a></li>
+        <li><a href="analyze.html" class="btn-nav-upload"><i class="fas fa-upload"></i> Upload Media</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="main-wrapper">
+    <div style="max-width: 840px; margin: 0 auto;">
+      
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <h1 style="font-size: 2.2rem; font-weight: 800;">Upload Media for Authenticity Verification</h1>
+        <p style="color: var(--text-secondary); margin-top: 0.5rem;">Select or drag an image or video file to run multi-layered forensic & AI deepfake detection.</p>
+      </div>
+
+      <!-- Drag and Dropzone Container -->
+      <div id="dropzone" class="dropzone-container">
+        <i class="fas fa-cloud-arrow-up dropzone-icon"></i>
+        <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem;">Drag and drop your file here</h3>
+        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">
+          Supported Formats: JPG, PNG, WEBP, MP4, MOV, AVI (Max: 50MB)
+        </p>
+        <button type="button" class="btn btn-secondary">
+          <i class="fas fa-folder-open"></i> Browse Local Files
+        </button>
+        <input type="file" id="file-input" class="file-input" accept=".jpg,.jpeg,.png,.webp,.mp4,.mov,.avi">
+      </div>
+
+      <!-- File Preview Box -->
+      <div id="preview-box" class="preview-box">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+          <div>
+            <h4 id="file-name-display" style="font-weight: 700; font-size: 1.1rem;">filename.jpg</h4>
+            <span id="file-size-display" style="font-size: 0.85rem; color: var(--text-muted);">0 MB</span>
+          </div>
+          <button id="btn-remove" class="btn btn-danger" style="padding: 0.4rem 0.85rem; font-size: 0.85rem;">
+            <i class="fas fa-times"></i> Remove
+          </button>
+        </div>
+
+        <div id="preview-container" style="text-align: center; background: #000; border-radius: var(--radius-sm); overflow: hidden;">
+          <!-- Media preview injected dynamically -->
+        </div>
+
+        <div style="margin-top: 1.5rem; text-align: center;">
+          <button id="btn-analyze" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem;">
+            <i class="fas fa-microscope"></i> Analyze Authenticity Now
+          </button>
+        </div>
+      </div>
+
+      <!-- HUD Progress & Scanning HUD Animation -->
+      <div id="hud-progress" class="hud-progress">
+        <div class="hud-header">
+          <span><i class="fas fa-radar"></i> DEEPGUARD SCANNER RUNNING</span>
+          <span id="hud-pct">PROCESSING...</span>
+        </div>
+        <div class="progress-bar-track">
+          <div id="progress-bar-fill" class="progress-bar-fill"></div>
+        </div>
+        <ul id="hud-step-list" class="hud-step-list">
+          <!-- Step items injected by analyze.js -->
+        </ul>
+      </div>
+
+      <!-- Disclaimer -->
+      <div class="disclaimer-box" style="margin-top: 2.5rem;">
+        <i class="fas fa-info-circle"></i>
+        <div>
+          <strong>Privacy Note:</strong> Uploaded media is sanitized and processed strictly for forensic feature extraction. Files are managed securely in local application storage.
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div style="max-width: 1280px; margin: 0 auto; padding: 0 1.5rem;">
+      <p>DeepGuard – AI-Based Deepfake & Digital Media Authenticity Verification System</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/analyze.js"></script>
+</body>
+</html>
